@@ -9,3 +9,4 @@
 **7-last_digit.c** - Write a function that prints the last digit of a number. Prototype: int print_last_digit(int); Returns the value of the last digit.<br/><br/>
 **8-main.c** - Write a function that prints every minute of the day of Jack Bauer, starting from 00:00 to 23:59. Prototype: void jack_bauer(void);<br/><br/>
 **9-times_table.c** - Write a function that prints the 9 times table, starting with 0. Prototype: void times_table(void);<br/><br/>
+**10-add.c** - Write a function that adds two integers and returns the result. Prototype: int add(int, int);<br/><br/>
