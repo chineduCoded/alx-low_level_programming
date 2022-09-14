@@ -11,42 +11,35 @@
 
 int main(void)
 {
-	int i;
-	unsigned long fib1 = 0, fib2 = 1, s;
-	unsigned long fib1_half1, fib1_half2, fib2_half1, fib2_half2;
-	unsigned long half1, half2;
+	unsigned long int i, j, k, j1, j2, k1, k2;
 
-	for (i = 0; i < 92; i++)
+	j = 1;
+	k = 2;
+
+	for (i = 1; i < 91; i++)
 	{
-		s = fib1 + fib2;
-		printf("%lu, ", s);
+		printf(", %lu", k);
 
-		fib1 = fib2;
-		fib2 = s;
+		k = k + j;
+		j = k - j;
 	}
 
-	fib1_half1 = fib1 / 10000000000;
-	fib2_half1 = fib2 / 10000000000;
-	fib1_half2 = fib1 % 10000000000;
-	fib2_half2 = fib2 % 10000000000;
+	j1 = j / 1000000000;
+	j2 = j % 1000000000;
+	k1 = k / 1000000000;
+	k2 = k % 1000000000;
 
-	for (i = 93; i < 99; i++)
+	for (i = 92; i < 99; i++)
 	{
-		half1 = fib1_half1 + fib2_half1;
-		half2 = fib1_half2 + fib2_half2;
-		if (fib1_half2 + fib2_half2)
-		{
-			half1 += 1;
-			half2 %= 10000000000;
-		}
-		printf("%lu%lu", half1, half2);
-		if (i != 98)
-			printf(", ");
-		fib1_half1 = fib2_half1;
-		fib1_half2 = fib2_half2;
-		fib2_half1 = half1;
-		fib2_half2 = half2;
+		printf(", %lu", k1 + (k2 / 1000000000));
+		printf("%lu", k2 % 1000000000);
+		k1 = k1 + j1;
+		j1 = k1 - j1;
+		k2 = k2 + j2;
+		j2 = k2 - j2;
 	}
+
 	printf("\n");
+
 	return (0);
 }
