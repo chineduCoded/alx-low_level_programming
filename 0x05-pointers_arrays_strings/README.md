@@ -5,3 +5,4 @@
 **3-puts.c** - Write a function that prints a string, followed by a new line, to stdout. Prototype: void _puts(char *str);<br/><br/>
 **4-print_rev.c** - Write a function that prints a string, in reverse, followed by a new line. Prototype: void print_rev(char *s);<br/><br/>
 **5-rev_string.c** - Write a function that reverses a string. Prototype: void rev_string(char *s);<br/><br/>
+**6-puts2.c** - Write a function that prints every other character of a string, starting with the first character, followed by a new line. Prototype: void puts2(char *str);<br/><br/>
