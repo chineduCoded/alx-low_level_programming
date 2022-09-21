@@ -10,3 +10,4 @@
 **7-leet.c** - Write a function that encodes a string into 1337.<br/><br/>
 **100-rot13.c** - Write a function that encodes a string using rot13. Prototype: char *rot13(char *); You can only use if statement once in your code. You can only use two loops in your code. You are not allowed to use switch. You are not allowed to use any ternary operation.<br/><br/>
 **101-print_number.c** - Write a function that prints an integer. Prototype: void print_number(int n); You can only use _putchar function to print. You are not allowed to use long. You are not allowed to use arrays or pointers. You are not allowed to hard-code special values.<br/><br/>
+**102-magic.c** - Add one line to this code, so that the program prints a[2] = 98, followed by a new line.<br/><br/>
