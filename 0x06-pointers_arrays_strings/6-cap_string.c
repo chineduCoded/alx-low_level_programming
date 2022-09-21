@@ -1,34 +1,45 @@
 #include "main.h"
 
+int check_separators(char c);
+
 /**
  * cap_string - capitalizes all words of a string
- * @s: input  string.
- * Return: the pointer to dest
+ * @s: input  string to capital letters
+ * Return: the pointer to s
  */
 
 char *cap_string(char *s)
 {
-	int len = 0, i;
-	int separators[] = {32, 9, 10, 44, 59, 46, 33, 63, 34, 40, 41, 123, 125};
+	int i = 0;
 
-	if (*(s + len) >= 97 && *(s + len) <= 122)
+	while (s[i])
 	{
-		*(s + len) = *(s + len) - 32;
-		len++;
-	}
-	while (*(s + len) != '\0')
-	{
-		for (i = 0; i < 13; i++)
-		{
-			if (*(s + len) == separators[i])
-			{
-				if ((*(s + (len + 1)) >= 97) && (*(s + (len + 1)) <= 122))
-				       *(s + (len + 1)) = *(s + (len + 1)) - 32;
-					break;
-			}
-		}
-		len++;
+		if (i == 0 && (s[i] >= 'a' && s[i] <= 'z'))
+			s[i] -= 32;
+
+		if (check_separators(s[i]) && (s[i + 1] >= 'a' && s[i + 1] <= 'z'))
+			s[i + 1] -= 32;
+		i++;
 	}
 
 	return (s);
+}
+
+/**
+ * check_separators - separators of words: space, tabulation
+ * , new line, ,, ;, ., !, ?, ", (, ), {, and }
+ * @c: an input character
+ * Return: 1 if separator, 0 otherwise
+ */
+int check_separators(char c)
+{
+	int i = 0;
+	char separators[13] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')', '{', '}'};
+
+	for (; i < 13; i++)
+	{
+		if (c == separators[i])
+			return (1);
+	}
+	return (0);
 }
