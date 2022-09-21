@@ -4,3 +4,4 @@
 . Return a pointer to the resulting string dest.<br/><br/>
 **2-strncpy.c** - Write a function that copies a string. Prototype: char *_strncpy(char *dest, char *src, int n); Your function should work exactly like strncpy.<br/><br/>
 **3-strcmp.c** - Write a function that compares two strings. Prototype: int _strcmp(char *s1, char *s2); Your function should work exactly like strcmp.<br/><br/>
+**4-rev_array.c** - Write a function that reverses the content of an array of integers. Prototype: void reverse_array(int *a, int n); Where n is the number of elements of the array.<br/><br/>
