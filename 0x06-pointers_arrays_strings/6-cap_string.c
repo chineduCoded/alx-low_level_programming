@@ -1,34 +1,33 @@
 #include "main.h"
-
 /**
- * cap_string - a function that capitalizes all words of a string
- * @n: input string
- * Return: caps on the first letter of a separator
+ * cap_string - capitalizes every first letter of a word in a string.
+ * separators of words are: space, tabulation,
+ * new line, ,, ;, ., !, ?, ", (, ), {, and }.
+ * @s: pointer to string.
+ *
+ * Return: pointer to s.
  */
-
-char *cap_string(char *n)
+char *cap_string(char *s)
 {
-	int i, x;
-	int cap = 32;
-	int separators[] = {',', ';', '.', '?', '"', '(', ')', '{', '}', ' ', '\n', '\t'};
+	int cnt;
 
-	for (i = 0; n[i] != '\0'; i++)
+	/* scan through string */
+	cnt = 0;
+	while (s[cnt] != '\0')
 	{
-		if (n[i] >= 'a' && n[i] <= 'z')
+		/* if next character after cnt is a char, capitalize it */
+		if (s[0] >= 97 && s[0] <= 122)
 		{
-			n[i] = n[i] - cap;
+			s[0] = s[0] - 32;
 		}
-
-		cap = 0;
-
-		for (x = 0; x <= 12; x++)
+		if (s[cnt] == ' ' || s[cnt] == '\t' || s[cnt] == '\n' || s[cnt] == ',' || s[cnt] == ';' || s[cnt] == '.' || s[cnt] == '!' || s[cnt] == '?' || s[cnt] == '"' || s[cnt] == '(' || s[cnt] == ')' || s[cnt] == '{' || s[cnt] == '}')
 		{
-			if (n[i] == separators[x])
+			if (s[cnt + 1] >= 97 && s[cnt + 1] <= 122)
 			{
-				x = 12;
-				cap = 32;
+				s[cnt + 1] = s[cnt + 1] - 32;
 			}
 		}
+		cnt++;
 	}
-	return (0);
+	return (s);
 }
