@@ -2,58 +2,77 @@
 #include <stdio.h>
 
 /**
- * print_line - prints a s bytes of a buffer
- * @c: buffer to print
- * @s: bytes of buffer to print
- * @l: line of buffer to print
- *
- * Return: void
+ * isPrintableASCII - determines if n is a printable ASCII char
+ * @n: an integer
+ * Return: 1 if true, 0 if false
  */
-
-void print_line(char *c, int s, int l)
+int isPrintableASCII(int n)
 {
-	int j, k;
+	return (n >= 32 && n <= 126);
+}
 
-	for (j = 0; j <= 9; j++)
+/**
+ * printHexes - print hex values for string n in formatted form
+ * @b: string to print
+ * @begin: starting position
+ * @end: ending position
+ */
+void printHexes(char *b, int begin, int end)
+{
+	int i = 0;
+
+	while (i < 10)
 	{
-		if (j <= s)
-			printf("%02x", c[l * 10 + j]);
+		if (i < end)
+			printf("%02x", *(b + begin + 1));
 		else
 			printf(" ");
-		if (j % 2)
-			putchar(' ');
-	}
-	for (k = 0; k <= s; k++)
-	{
-		if (c[l * 10 + k] > 31 && c[l * 10 + k] < 127)
-			putchar(c[l * 10 + k]);
-		else
-			putchar('.');
+		if (i % 2)
+			printf(" ");
+		i++;
 	}
 }
 
 /**
- * print_buffer - a function that prints a buffer
- * @b: the buffer to print
- * @size: the size of buffer
- *
+ * printASCII - print ascii values for string b,
+ * formatted to replace nonprintable chars with '.'
+ * @b: string to print
+ * @begin: starting position
+ * @end: ending position
+ */
+void printASCII(char *b, int begin, int end)
+{
+	int ch, i = 0;
+
+	while (i < end)
+	{
+		ch = *(b + i + begin);
+		if (!isPrintableASCII(ch))
+			ch = 46;
+		printf("%c", ch);
+		i++;
+	}
+}
+
+/**
+ * print_buffer - prints a buffer
+ * @b: string
+ * @size: size of buffer
  */
 void print_buffer(char *b, int size)
 {
-	int i;
-	for (i = 0; i <= (size - 1) / 10 && size; i++)
+	int begin, end;
+
+	if (size > 0)
 	{
-		printf("%08x: ", i * 10);
-		if (i < size / 10)
+		for (begin = 0; begin < size; begin += 10)
 		{
-			print_line(b, 9, i);
+			end = (size - begin < 10) ? size - begin : 10;
+			printf("%08x: ", begin);
+			printHexes(b, begin, end);
+			printASCII(b, begin, end);
+			printf("\n");
 		}
-		else
-		{
-			print_line(b, size % 10 - 1, i);
-		}
-		putchar('\n');
-	}
-	if (size == 0)
-		putchar('\n');
+	} else
+		printf("\n");
 }
