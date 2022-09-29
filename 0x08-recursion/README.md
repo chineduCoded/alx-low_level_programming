@@ -6,3 +6,4 @@
 **4-pow_recursion.c** - Write a function that returns the value of x raised to the power of y. Prototype: int _pow_recursion(int x, int y); If y is lower than 0, the function should return -1<br/><br/>
 **5-sqrt_recursion.c** - Write a function that returns the natural square root of a number. Prototype: int _sqrt_recursion(int n); If n does not have a natural square root, the function should return -1<br/><br/>
 **6-is_prime_number.c** - Write a function that returns 1 if the input integer is a prime number, otherwise return 0. int is_prime_number(int n);<br/><br/>
+**100-is_palindrome.c** - Write a function that returns 1 if a string is a palindrome and 0 if not. Prototype: int is_palindrome(char *s); An empty string is a palindrome<br/><br/>
