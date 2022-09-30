@@ -1,17 +1,17 @@
 #include "main.h"
 
 /**
- * _puts - puts to stdout
- * @s: params
+ * _puts - puts to stout
+ * @str: params
  */
 
-void _puts(char *s)
+void _puts(char *str)
 {
 	int i = 0;
 
-	while (s[i] != '\0')
+	while (str[i] != '\0')
 	{
-		_putchar(s[i]);
+		_putchar(str[i]);
 		i++;
 	}
 

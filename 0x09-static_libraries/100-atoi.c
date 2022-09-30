@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _atoi - converts a string to integer
+ * _atoi - converts a string to an integer.
  * @s: param
  * Return: (j * k)
  */
