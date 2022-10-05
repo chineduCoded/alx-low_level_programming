@@ -1,31 +1,67 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 
 /**
- * _strdup - duplicate to new mmemory space loccation
- * @str: char
- * Return: ar
+ * _strlen - count array
+ * @s: array of elements
+ * Return: 1
+ */
+
+
+int _strlen(char *s)
+{
+	unsigned int i;
+
+	i = 0;
+	while (s[i] != '\0') /*count character of string*/
+	{
+		i++;
+	}
+	return (i);
+}
+
+
+/**
+ * _strcpy - copy arrays
+ * @src: array of elements
+ * @dest: dest array
+ * Return: dest
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (dest);
+}
+
+/**
+ * _strdup - array for prints a string
+ * @str: array of elements
+ * Return: pointer
  */
 
 char *_strdup(char *str)
 {
-	int i, end;
-	char *ar;
+	char *dst;
+	unsigned int size;
 
-	if (str == NULL)
-		return (NULL);
-
-	for (end = 0; end <= *str; end++)
-		;
-	end += 1;
-	ar = malloc(sizeof(char) * end);
-
-	for (i = 0; i < end; i++)
+	if (str == 0)
 	{
-		ar[i] = str[i];
-	}
-	if (ar == NULL)
 		return (NULL);
-	return (ar);
+	}
+	size = _strlen(str) + 1;
+	dst = (char *)malloc(size * sizeof(char));
+	if (dst == 0)
+	{
+		return (NULL);
+	}
+	_strcpy(dst, str);
+	return (dst);
 }
