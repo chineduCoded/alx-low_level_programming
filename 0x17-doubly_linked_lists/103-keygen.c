@@ -51,7 +51,7 @@ int f5(char *usrn, int len)
 		vch += 1;
 	}
 
-	return (((unsigned int)ch ^ 229) & 63);
+	return (((unsigned int)ch ^ 239) & 63);
 }
 
 /**
